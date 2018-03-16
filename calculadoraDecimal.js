@@ -1,32 +1,33 @@
 function exibirResultadosDoDecimal() {
     var numeroBase = Number(document.getElementById("numeroDecimal").value);
 
-    var resultadoBinario;
 
-    var par = 0;
-    var impar = 0;
+    var ResultadoDecBin = "";
+    var total = numeroBase;
 
-    var total = numeroBase / 2;
 
-    while (total > 1) {
-
-        alert(numeroBase);
-        alert(total); // função pra mostrar o numero base
-        document.getElementById("resultadoDecimalTres").setAttribute('value', total); // vai mostrar o total pra verificar a conta
-
-        if (divTotal % 2 == 0) {
-            par = par + 1;
-            alert("Par"); // criar condição para adicionar um "0" a string resposta            
+    while (total > 0) { // CONDIÇÃO DIVIDIR ATÉ QUE O ÚLTIMO RESULTADO SEJA IGUAL A 1
+        if (total % 2) {
+            ResultadoDecBin = ResultadoDecBin + "1";
+            // adiciona o algarismo "1" a string quando o resto da divisão é 1
         }
-
-        if (divTotal % 2 == 1) {
-            impar = impar + 1;
-            alert("Impar"); // criar condição para adicionar um "1" a string resposta
-        }        
+        else {
+            ResultadoDecBin = ResultadoDecBin + "0";
+            // adiciona o algarismo "0" a string quando o resto da divisão é 0
+        }
+        total = parseInt(total / 2);
+        // divide e arredonda o total por 2 para reiniciar a condição "While"
     }
-
+    
+    // INÍCIO INVERSOR DA STRING BINÁRIO
+    ResultadoDecBin = ResultadoDecBin.split(""); //converte a variável para array;
+    ResultadoDecBin = ResultadoDecBin.reverse(); //reverte os algarismos/dígios em ordem;
+    ResultadoDecBin = ResultadoDecBin.join(""); //junta todos os valores novamente conforme a ordem inversa.
+    // FIM INVERSOR DA STRING BINÁRIO
+ 
+    document.getElementById("resultadoDecimalUm").setAttribute('value', ResultadoDecBin);
     document.getElementById("resultadoDecimalDois").setAttribute('value', "abc");
-    document.getElementById("resultadoDecimalUm").setAttribute('value', par);  
+    document.getElementById("resultadoDecimalTres").setAttribute('value', "abc");
 
 
 }
