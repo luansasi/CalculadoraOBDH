@@ -85,10 +85,9 @@ function exibirResultadosDoDecimal() {
     }
 
 
-    // inicio formula hexadecimal
+    // INÍCIO FÓRMULA EXADECIMAL
     var binNumeralDois = binCruDois.length;
     binNumeralDois = binNumeralDois % 4;
-    alert(binNumeralDois);
 
 
 
@@ -100,7 +99,6 @@ function exibirResultadosDoDecimal() {
     }
 
     binHexadecimal = binHexadecimal.match(/.{1,4}/g);
-    alert(binHexadecimal);
 
     var respostaHexadecimal = "";
     var j = binHexadecimal.length;
@@ -140,7 +138,7 @@ function exibirResultadosDoDecimal() {
         else if (binHexadecimal[j] == "0101") {
             respostaHexadecimal = respostaHexadecimal + "A";
         }
-        else if (binHexadecimal[j] == "1110") {
+        else if (binHexadecimal[j] == "1101") {
             respostaHexadecimal = respostaHexadecimal + "B";
         }
         else if (binHexadecimal[j] == "0011") {
