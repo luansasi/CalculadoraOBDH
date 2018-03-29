@@ -18,23 +18,22 @@ function exibirResultadosDoDecimal() {
         total = parseInt(total / 2);
         // divide e arredonda o total por 2 para reiniciar a condição "While"
     }
+    var binCru = ResultadoDecBin;
+    var binOcatal = ResultadoDecBin;
 
     // INÍCIO INVERSOR DA STRING BINÁRIO
-    var binCru = ResultadoDecBin;
-
     ResultadoDecBin = ResultadoDecBin.split(""); //converte a variável para array;
     ResultadoDecBin = ResultadoDecBin.reverse(); //reverte os algarismos/dígios em ordem;
     ResultadoDecBin = ResultadoDecBin.join(""); //junta todos os valores novamente conforme a ordem inversa.
     // FIM INVERSOR DA STRING BINÁRIO
 
-    var binOcatal = ResultadoDecBin;
-    var respostaOctal = "";
 
+    var respostaOctal = "";
     var binNumeral = binCru.length;
 
-    alert(binNumeral);
+
     binNumeral = binNumeral % 3;
-    alert(binNumeral);
+
 
 
     while ((binNumeral % 3) > 0) {
@@ -43,35 +42,37 @@ function exibirResultadosDoDecimal() {
         binNumeral = binCru.length;
 
     }
-    alert(binOcatal);
+
     binOcatal = binOcatal.match(/.{1,3}/g);
-    alert(binOcatal);
 
 
     var i = binOcatal.length;
 
-    while (i > 0) {
-            alert(binOcatal[i]);
+    while (i >= 0) {
+
         if (binOcatal[i] == "000") {
             respostaOctal = respostaOctal + "0";
         }
-        else if (binOcatal[i] == "001") {
+        else if (binOcatal[i] == "100") {
             respostaOctal = respostaOctal + "1";
         }
         else if (binOcatal[i] == "010") {
             respostaOctal = respostaOctal + "2";
         }
-        else if (binOcatal[i] == "011") {
+        else if (binOcatal[i] == "110") {
             respostaOctal = respostaOctal + "3";
         }
-        else if (binOcatal[i] == "100") {
+        else if (binOcatal[i] == "001") {
             respostaOctal = respostaOctal + "4";
         }
         else if (binOcatal[i] == "101") {
             respostaOctal = respostaOctal + "5";
         }
-        else if (binOcatal[i] == "110") {
+        else if (binOcatal[i] == "011") {
             respostaOctal = respostaOctal + "6";
+        }
+        else if (binOcatal[i] == undefined) {
+            respostaOctal = respostaOctal + "";
         }
         else {
             respostaOctal = respostaOctal + "7";
@@ -79,15 +80,9 @@ function exibirResultadosDoDecimal() {
         i = i - 1;
     }
 
-
-
-
-
     document.getElementById("resultadoDecimalUm").setAttribute('value', ResultadoDecBin);
     document.getElementById("resultadoDecimalDois").setAttribute('value', respostaOctal);
     document.getElementById("resultadoDecimalTres").setAttribute('value', binOcatal);
-
-
 }
 
 
